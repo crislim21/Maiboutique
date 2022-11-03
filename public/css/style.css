@@ -1,0 +1,12 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.jumbotron {
+    background-image: url('../img/pikist.jpg');
+    background-size: cover;
+    height: 100vh;
+
+}
