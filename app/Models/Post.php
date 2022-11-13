@@ -30,6 +30,10 @@ class Post extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function cart() {
+        return $this->hasMany(Cart::class);
+    }
+
     public function getRouteKeyName() {
         return 'slug';
     }

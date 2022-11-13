@@ -39,6 +39,7 @@
               </div>
             </div>
 
+
             {{-- Product Category (+) --}}
             <div class="mb-3 col-auto">
                 <label for="category" class="form-label">Product Category</label>
@@ -89,7 +90,7 @@
             <div class="mb-3 col-auto">
                 <label for="price" class="form-label">Product Price</label>
                 <input type="number" class="form-control @error('price')is-invalid @enderror"
-                id="price" name="price" required value="{{ old('price') }}">
+                id="price" name="price" min=1000 required value="{{ old('price') }}">
                 @error('price')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -105,7 +106,7 @@
             <div class="mb-3 col-auto">
                 <label for="stock" class="form-label">Product Stock</label>
                 <input type="number" class="form-control @error('stock')is-invalid @enderror"
-                id="stock" name="stock" value="1" value="{{ old('stock') }}">
+                id="stock" name="stock" min=1 required value="{{ old('stock') }}">
                 @error('stock')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -113,7 +114,7 @@
                 @enderror
                 <div class="col-auto">
                     <span id="passwordHelpInline" class="form-text">
-                        Stock must greater than 1.
+                        Stock must greater than or equal to 1.
                     </span>
                 </div>
             </div>

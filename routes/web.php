@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardProductController;
 use App\Models\Post;
@@ -68,5 +69,10 @@ Route::get('/categories/{category:slug}', [PostController::class, 'showcatslug']
 Route::get('/sellers/{seller:username}', [PostController::class, 'showseller']);
 
 Route::get('/search', [SearchController::class, 'index']);
+
+Route::get('/cart', [CartController::class, 'index'])->middleware('auth');
+Route::get('/cart/edit', [CartController::class, 'edit'])->middleware('auth');
+Route::post('/cart/store/{id}', [CartController::class, 'store'])->name('cart.store')->middleware('auth');
+Route::post('/cart/destroy/{id}', [CartController::class, 'destroy'])->name('cart.destroy')->middleware('auth');
 
 

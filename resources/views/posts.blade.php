@@ -12,10 +12,10 @@
                         <div class="card m-2">
                             @if ($post->image)
                             <div style="max-height:500px; overflow:hidden">
-                                <img src="{{ asset('storage/' . $post->image) }}" class="border p-3 img-fluid">
+                                <img src="{{ asset('storage/' . $post->image) }}" class="border border-0 p-3 img-fluid">
                             </div>
                             @else
-                                <img src="https://source.unsplash.com/300x300?{{ $post->category->name }}" class="border p-3 img-fluid">
+                                <img src="https://source.unsplash.com/300x300?{{ $post->category->name }}" class="border border-0 p-3 img-fluid">
                             @endif
 
                             {{-- <img src="https://source.unsplash.com/300x300?{{ $post->category->name }}" class="card-img-top" alt="..."> --}}
@@ -26,7 +26,7 @@
                                 <p>Seller : <a href="/sellers/{{ $post->seller->username }}"  class="text-decoration-none">{{ $post->seller->username }}</a></p>
                                 <p><a href="/categories/{{ $post->category->slug}}" class="text-decoration-none"> {{ $post->category->name }} </a></p>
                                 <h5>Rp. {{ $post->price }}</h5>
-                                <small>{{ $post->stock }}</small>
+                                <small>Stock: {{ $post->stock }}</small>
                                 <br>
                                 <a href="/post/{{ $post->slug }}" class="btn btn-primary">More detail</a>
                             </div>

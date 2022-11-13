@@ -17,7 +17,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    
+
     protected $guarded = ['id'];
 
 
@@ -43,5 +43,9 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+
+    public function cart() {
+        return $this->belongsTo(Cart::class);
     }
 }
