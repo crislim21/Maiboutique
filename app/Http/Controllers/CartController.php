@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Auth;
 class CartController extends Controller
 {
     public function index() {
-        $cart = Cart::all();
+        $cart = Cart::where('user_id', auth()->user()->id)->get();
+        
         // dd($cart->count());
         return view('cart.index',[
             "title" => "Cart",

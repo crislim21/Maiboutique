@@ -42,6 +42,7 @@ class PostController extends Controller
     }
 
     public function showcatslug(Category $category) {
+        
         return view('posts', [
             'title' => "Post by Category : $category->name",
             'active' => 'Category',
