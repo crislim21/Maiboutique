@@ -11,7 +11,7 @@ class CartController extends Controller
 {
     public function index() {
         $cart = Cart::where('user_id', auth()->user()->id)->get();
-        
+
         // dd($cart->count());
         return view('cart.index',[
             "title" => "Cart",
@@ -46,9 +46,9 @@ class CartController extends Controller
 
     }
 
-    public function destroy(Cart $cart) {
-        // Cart::destroy($cart->id);
-        dd(Cart::destroy($cart->id));
+    public function destroy(Post $post) {
+
+        dd($post->id);
 
         return redirect('/cart')->with('success','Cart product Berhasil dihapus');
     }

@@ -44,10 +44,10 @@
                                             <a href="/cart/edit" class="btn btn-primary">Edit Cart</a>
                                         </div>
                                         <div class="col-lg-8">
-                                            <form action="{{ route('cart.destroy', $item->id) }}" method="post">
-                                                {{-- @method('delete') --}}
+                                            <form action="/cart/product/{{ $item->id }}" method="POST">
                                                 @csrf
-                                                    <button class="btn btn-danger w-100" onclick="return confirm('Are you sure delete this product from Cart ?')">Remove from Cart</button>
+                                                @method('delete')
+                                                <button class="btn btn-danger w-100" onclick="return confirm('Are you sure delete this product from Cart ?')">Remove from Cart</button>
                                             </form>
                                         </div>
                                     </div>

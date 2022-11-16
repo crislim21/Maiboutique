@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CartControllers;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardProductController;
 use App\Models\Post;
@@ -72,7 +73,8 @@ Route::get('/search', [SearchController::class, 'index']);
 
 Route::get('/cart', [CartController::class, 'index'])->middleware('auth');
 Route::get('/cart/edit', [CartController::class, 'edit'])->middleware('auth');
-Route::post('/cart/store/{id}', [CartController::class, 'store'])->name('cart.store')->middleware('auth');
-Route::post('/cart/destroy/{id}', [CartController::class, 'destroy'])->name('cart.destroy')->middleware('auth');
+// Route::post('/cart/store/{id}', [CartController::class, 'store'])->name('cart.store')->middleware('auth');
+// Route::post('/cart/destroy/{id}', [CartController::class, 'destroy'])->middleware('auth');
+Route::resource('/cart/product', CartControllers::class)->middleware('auth');
 
 
