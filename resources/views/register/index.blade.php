@@ -12,7 +12,7 @@
 
 
                 <div class="d-flex justify-content-center align-items-center">
-                    <form action="/register" method="post">
+                    <form action="/register" method="POST">
                     @csrf
                     <h3 class="mb-5">Sign Up</h3>
 

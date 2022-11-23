@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->string('product_name');
             $table->string('image')->nullable();
+            $table->string('description');
             $table->unsignedBigInteger('price');
             $table->unsignedBigInteger('quantity');
             $table->unsignedBigInteger('sub_total');

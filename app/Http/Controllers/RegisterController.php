@@ -18,7 +18,7 @@ class RegisterController extends Controller
     public function store(Request $request) {
         $validatedData = $request->validate([
             'username' => ['required', 'min:5', 'max:20', 'unique:users'],
-            'email' => 'required|email:dns|unique:users',
+            'email' => 'required|email|unique:users',
             'password' => 'required|min:5|max:20',
             'phonenumber' => 'required|min:10|max:13',
             'address' => 'required|min:5|max:255'
@@ -26,7 +26,6 @@ class RegisterController extends Controller
 
         // $validatedData['password'] = bcrypt(($validatedData['password']));
         $validatedData['password'] = Hash::make($validatedData['password']);
-
         User::create($validatedData);
 
         // session()->flash('success', 'Registrasi Berhasil!');

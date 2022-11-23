@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CartControllers;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardProductController;
 use App\Models\Post;
@@ -41,7 +42,7 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
-Route::post('/register', [RegisterController::class, 'store'])->middleware('auth');
+Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/profile', [ProfileController::class, 'showrole'])->middleware('auth');
 
@@ -72,9 +73,11 @@ Route::get('/sellers/{seller:username}', [PostController::class, 'showseller']);
 Route::get('/search', [SearchController::class, 'index']);
 
 Route::get('/cart', [CartController::class, 'index'])->middleware('auth');
-Route::get('/cart/edit', [CartController::class, 'edit'])->middleware('auth');
-// Route::post('/cart/store/{id}', [CartController::class, 'store'])->name('cart.store')->middleware('auth');
-// Route::post('/cart/destroy/{id}', [CartController::class, 'destroy'])->middleware('auth');
+// Route::get('/cart/edit', [CartController::class, 'edit'])->middleware('auth');
+Route::post('/cart/store/{id}', [CartController::class, 'store'])->name('cart.store')->middleware('auth');
+Route::post('/cart/destroy/{id}', [CartController::class, 'destroy'])->middleware('auth');
 Route::resource('/cart/product', CartControllers::class)->middleware('auth');
+// Route::put('/cart/edit/{cart:id}', [CartController::class, 'update'])->middleware('auth');
+
 
 
