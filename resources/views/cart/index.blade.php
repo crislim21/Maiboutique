@@ -12,7 +12,16 @@
 
     <div class="row">
         <div class="col-sm-2 ms-auto">
-            <a href="" class="text-decoration-none text-dark">Total Price: Rp. 40000</a>
+            @php
+                $total = 0;
+            @endphp
+            @foreach ($cart as $item)
+                @php
+                    $total += $item->sub_total
+                @endphp
+            @endforeach
+
+            <a class="text-decoration-none text-dark">Total Price: Rp. {{ $total }}</a>
             <a href="" class="text-decoration-none btn btn-primary">Check Out</a>
         </div>
     </div>
@@ -41,7 +50,7 @@
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <a href="/cart/edit" class="btn btn-primary">Edit Cart</a>
+                                            <a href="/cart/product/{{ $item->id }}" class="btn btn-primary">Edit Cart</a>
                                         </div>
                                         <div class="col-lg-8">
                                             <form action="/cart/product/{{ $item->id }}" method="POST">
@@ -59,7 +68,7 @@
             </div>
         </div>
     @else
-        <p class="text-center fs-4">No Post Found</p>
+        <p class="text-center fs-4">No Cart Listed</p>
     @endif
 
 
