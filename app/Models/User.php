@@ -48,4 +48,8 @@ class User extends Authenticatable
     public function cart() {
         return $this->belongsTo(Cart::class);
     }
+
+    public function history() {
+        return $this->belongsTo(History::class);
+    }
 }

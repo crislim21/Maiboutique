@@ -58,7 +58,7 @@
                     <a class="nav-link {{ ($active === "Cart") ? 'active' : '' }}" href="/cart">Cart</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link {{ ($active === "History") ? 'active' : '' }}" href="#">History</a>
+                    <a class="nav-link {{ ($active === "History") ? 'active' : '' }}" href="/history">History</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link {{ ($active === "Profile") ? 'active' : '' }}" href="/profile">Profile</a>

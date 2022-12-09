@@ -20,31 +20,37 @@ class DatabaseSeeder extends Seeder
 
         Category::create([
             'name' => 'Classic style',
+            'image' => '/category-images/classic.jpg',
             'slug' => 'classic'
         ]);
 
         Category::create([
             'name' => 'Business style',
+            'image' => '/category-images/business.jpg',
             'slug' => 'business'
         ]);
 
         Category::create([
             'name' => 'Korea style',
+            'image' => '/category-images/korea.png',
             'slug' => 'korea'
         ]);
 
         Category::create([
             'name' => 'Minimalist style',
+            'image' => '/category-images/minimalist.jpg',
             'slug' => 'minimalist'
         ]);
 
         Category::create([
             'name' => 'Street wear style',
+            'image' => '/category-images/streetwear.jpg',
             'slug' => 'streetwear'
         ]);
 
         Category::create([
             'name' => 'Trendy style',
+            'image' => '/category-images/trendy.png',
             'slug' => 'trendy'
         ]);
 

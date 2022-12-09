@@ -22,7 +22,7 @@
             @endforeach
 
             <a class="text-decoration-none text-dark">Total Price: Rp. {{ $total }}</a>
-            <a href="" class="text-decoration-none btn btn-primary">Check Out</a>
+            <a href="/history/make" class="text-decoration-none btn btn-primary">Check Out</a>
         </div>
     </div>
 

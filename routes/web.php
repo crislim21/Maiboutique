@@ -5,6 +5,7 @@ use App\Http\Controllers\CartControllers;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardProductController;
+use App\Http\Controllers\HistoryController;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Category;
@@ -15,6 +16,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UpdateProfileController;
+use App\Http\Controllers\HistoryDetailController;
+use App\Http\Controllers\HistoryHeaderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,5 +82,7 @@ Route::post('/cart/destroy/{id}', [CartController::class, 'destroy'])->middlewar
 Route::resource('/cart/product', CartControllers::class)->middleware('auth');
 // Route::put('/cart/edit/{cart:id}', [CartController::class, 'update'])->middleware('auth');
 
+Route::get('/history', [HistoryDetailController::class, 'index'])->middleware('auth');
+Route::get('/history/make', [HistoryDetailController::class, 'make_history'])->middleware('auth');
 
 

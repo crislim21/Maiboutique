@@ -49,7 +49,7 @@
                                         @csrf
                                         <div class="row">
                                             <div class="col-lg-6">
-                                                <input type="number" class="form-control text-center" name ="quantity" min=0 value="1">
+                                                <input type="number" class="form-control text-center" name ="quantity" min=1 value="1" max={{ $post->stock }}>
                                             </div>
                                             <div class="col-lg-6">
                                                 <button type="submit" class="btn btn-success w-100">Add to Cart</button>

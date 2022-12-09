@@ -17,4 +17,8 @@ class Cart extends Model
     public function seller() {
         return $this->hasOne(User::class);
     }
+
+    public function history() {
+        return $this->belongsTo(History::class);
+    }
 }
