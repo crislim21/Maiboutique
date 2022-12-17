@@ -36,6 +36,7 @@ class HistoryDetailController extends Controller
             'history' => $data,
             'count' => 0
 
+
         ]);
     }
 

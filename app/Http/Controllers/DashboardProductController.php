@@ -76,7 +76,7 @@ class DashboardProductController extends Controller
      */
     public function show(Post $post)
     {
-        
+
         return view('dashboard.product.show', [
             'post'=> $post
         ]);

@@ -12,7 +12,7 @@ class SearchController extends Controller
             "title" => "Search Your Favorites Clothes!",
             "active" => 'Search',
 
-            "posts" => Post::latest()->filter(request(['search']))->paginate(8)->withQueryString()
+            "posts" => Post::latest()->filter(request(['search']))->paginate(8)
         ]);
     }
 }

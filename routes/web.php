@@ -62,7 +62,6 @@ Route::resource('/dashboard/posts', DashboardProductController::class)->middlewa
 
 
 Route::get('/posts', [PostController::class, 'index']);
-
 //Start single post
 Route::get('/post/{post:slug}', [PostController::class,'showpost']);
 //End single post

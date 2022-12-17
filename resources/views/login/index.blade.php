@@ -31,7 +31,7 @@
                     @csrf
                     <h3 class="mb-5">Sign In</h3>
 
-                    <div class="form-outline mb-4 textbox">
+                    <div class="form-outline mb-3 textbox">
                       <label class="form-label" for="email">Email</label>
                       <input type="email" id="email" class="form-control @error('email') is-invalid @enderror "
                         placeholder="name@example.com" name="email" autofocus required
@@ -44,7 +44,7 @@
                         @enderror
                     </div>
 
-                    <div class="form-outline mb-4 textbox">
+                    <div class="form-outline mb-3 textbox">
                       <label class="form-label" for="password">Password</label>
                       <input type="password" id="password" class="form-control @error('password') is-invalid @enderror"
                       name="password" placeholder="5-20 characters" required/>
@@ -54,6 +54,11 @@
                             {{ $message }}
                         </div>
                       @enderror
+                    </div>
+
+                    <div class="pb-2">
+                        <input type="checkbox" id="remember" name="remember" class="form-check-input" value="1">
+                        <label for="remember" class="form-check-label">Remember Me</label>
                     </div>
 
 

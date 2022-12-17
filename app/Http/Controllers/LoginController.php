@@ -22,12 +22,12 @@ class LoginController extends Controller
             'email' => 'required|email',
             'password' => 'required|min:5|max:20'
         ]);
+        // @dd($request->get('remember'));
 
-        if(Auth::attempt($credentials)) {
+        if(Auth::attempt($credentials, $request->get('remember'), time() + 60)) {
             $request->session()->regenerate();
             return redirect()->intended('/dashboard/posts');
         }
-
         return back()->with('loginError', 'Login Failed');
     }
 

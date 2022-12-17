@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Post;
-use App\Models\Category;
 use App\Models\User;
+use App\Models\Category;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class PostController extends Controller
 {
@@ -42,11 +43,11 @@ class PostController extends Controller
     }
 
     public function showcatslug(Category $category) {
-        
+
         return view('posts', [
             'title' => "Post by Category : $category->name",
             'active' => 'Category',
-            'posts' => $category->posts->load('category', 'seller')
+            'posts' => $category->posts->load(['category', 'seller'])
         ]);
     }
 
@@ -54,7 +55,7 @@ class PostController extends Controller
         return view('posts', [
             'title' => "Post By Seller : $seller->name",
             'active' => 'Posts',
-            'posts'=> $seller->posts->load('category', 'seller')
+            'posts'=> $seller->posts->load(['category', 'seller'])
         ]);
     }
 }

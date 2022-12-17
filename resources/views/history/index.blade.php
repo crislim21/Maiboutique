@@ -20,7 +20,15 @@
                 <h4>{{ $items->created_at }}</h4>
                 @foreach ($items->historydetail as $item)
                 <ul>
-                    <li>{{ $item->quantity }} pc(s) {{ $item->product_title }}   -    <strong>Rp. {{ $item->price }}</strong></li>
+
+                    <li>
+                        @if($item->image == null)
+                            <img src="https://source.unsplash.com/100x100?{{ $item->product_title}}" class="border img-fluid">
+                        @else
+                            <img src="{{ $item->image }}" alt="">
+                        @endif
+                        {{ $item->quantity }} pc(s) {{ $item->product_title }}   -    <strong>Rp. {{ $item->price }}</strong>
+                    </li>
                 </ul>
                 @php
                     $count += $item->total
