@@ -35,7 +35,7 @@
                       <label class="form-label" for="email">Email</label>
                       <input type="email" id="email" class="form-control @error('email') is-invalid @enderror "
                         placeholder="name@example.com" name="email" autofocus required
-                        value="{{ old('email') }}"/>
+                        value="{{ Cookie::get('last_login') ? Cookie::get('last_login') : '' }}"/>
 
                         @error('email')
                         <div class="invalid-feedback">
@@ -57,7 +57,7 @@
                     </div>
 
                     <div class="pb-2">
-                        <input type="checkbox" id="remember" name="remember" class="form-check-input" value="1">
+                        <input type="checkbox" id="remember" name="remember" class="form-check-input">
                         <label for="remember" class="form-check-label">Remember Me</label>
                     </div>
 

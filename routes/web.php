@@ -17,6 +17,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UpdateProfileController;
 use App\Http\Controllers\HistoryDetailController;
+use Illuminate\Support\Facades\Cookie;
 use App\Http\Controllers\HistoryHeaderController;
 
 /*

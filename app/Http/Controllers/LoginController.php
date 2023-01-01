@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\User;
+use Illuminate\Support\Facades\Cookie;
 class LoginController extends Controller
 {
     //
@@ -23,8 +24,15 @@ class LoginController extends Controller
             'password' => 'required|min:5|max:20'
         ]);
         // @dd($request->get('remember'));
+        $rememberMe = true;
+        if($request->remember == null) {
+            $rememberMe = false;
+        }
 
-        if(Auth::attempt($credentials, $request->get('remember'), time() + 60)) {
+        if(Auth::attempt($credentials, $rememberMe)) {
+            if($rememberMe == true) {
+                Cookie::queue('last_login',$request->email, time()+60);
+            }
             $request->session()->regenerate();
             return redirect()->intended('/dashboard/posts');
         }
@@ -37,7 +45,7 @@ class LoginController extends Controller
 
         request()->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/login');
     }
 
 
