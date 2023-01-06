@@ -54,7 +54,7 @@
 
                     <div class="form-outline mb-4 textbox">
                         <label class="form-label" for="phonenumber">Phone Number</label>
-                        <input type="text" id="phonenumber" class="form-control @error('phonenumber')is-invalid @enderror"
+                        <input type="number" id="phonenumber" class="form-control @error('phonenumber')is-invalid @enderror"
                         placeholder="(10-13 numbers)" name="phonenumber"  required value="{{ old('phonenumber') }}"/>
 
                         @error('phonenumber')
